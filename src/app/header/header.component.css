@@ -1,7 +1,0 @@
-header {
-    display: block;
-    height: 60px;
-    padding: var(--content-padding);
-    box-shadow: 0px 5px 25px var(--shadow-color);
-    background: linear-gradient(90deg, rgba(204,255,204,1) 0%, rgba(133,255,133,1) 100%);
-}

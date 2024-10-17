@@ -6,10 +6,17 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <header class="brand-name">
-      <img class="brand-logo" src="assets/logo.svg" alt="logo" aria-hidden="true"/>
+      <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true"/>
     </header>
   `,
-  styleUrl: './header.component.css'
+  styles: `
+    header {
+      display: block;
+      height: 60px;
+      padding: var(--content-padding);
+      box-shadow: 0px 5px 25px var(--shadow-color);
+    }
+  `
 })
 export class HeaderComponent {
 

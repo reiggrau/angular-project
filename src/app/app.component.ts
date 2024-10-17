@@ -12,8 +12,23 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
     RouterOutlet
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <main>
+      <app-header></app-header>
+      <section class="content">
+        <app-home></app-home>
+      </section>
+    </main>
+  `,
+  styles: `
+    :host {
+      --content-padding: 10px;
+    }
+
+    .content {
+      padding: var(--content-padding);
+    }
+  `
 })
 export class AppComponent {
   title = 'homes';
