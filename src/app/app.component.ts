@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -8,15 +8,16 @@ import { HomeComponent } from './home/home.component';
   selector: 'app-root',
   standalone: true,
   imports: [
+    RouterModule,
     HeaderComponent,
-    HomeComponent,
-    RouterOutlet
+    HomeComponent
   ],
   template: `
     <main>
       <app-header></app-header>
       <section class="content">
-        <app-home></app-home>
+        <!-- <app-home></app-home> -->
+        <router-outlet></router-outlet>
       </section>
     </main>
   `,
