@@ -7,17 +7,26 @@ import { HousingLocation } from '../housing-location';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section>
-      <img class='listing-photo' [src]='housingLocation.photo' alt='Exterior photo of {{housingLocation.name}}'/>
-      <h2 class='listing-heading'>{{housingLocation.name}}</h2>
-      <p class='listing-location'>{{housingLocation.city}}, {{housingLocation.state}}</p>
-    </section>
+    <a href='/' target='_blank'>
+      <div class='listing'>
+        <img class='listing-photo' [src]='housingLocation.photo' alt='Exterior photo of {{housingLocation.name}}'/>
+        <h2 class='listing-heading'>{{housingLocation.name}}</h2>
+        <p class='listing-location'>{{housingLocation.city}}, {{housingLocation.state}}</p>
+      </div>
+    </a>
   `,
   styles: `
+    a {
+      text-decoration: none;
+    }
     .listing {
       background: var(--accent-color);
       border-radius: 30px;
-      padding-bottom: 30px;
+      padding-bottom: 10px;
+      transition: all 0.1s ease-in-out;
+    }
+    .listing:hover {
+      scale: 105%;
     }
     .listing-heading {
       color: var(--primary-color);
