@@ -110,7 +110,7 @@ export class HousingService {
 
   constructor() { }
 
-  getAllHousingLocations() : HousingLocation[] {
+  async getAllHousingLocations() : Promise <HousingLocation[]> {
     return this.housingLocationList;
   }
 
