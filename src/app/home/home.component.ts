@@ -1,34 +1,26 @@
 import { Component, inject } from '@angular/core'; // 'inject' is used to retrieve data
 import { CommonModule } from '@angular/common';
-import { HousingLocationComponent } from '../housing-location/housing-location.component';
+import { HousingCardComponent } from '../housing-card/housing-card.component';
 import { HousingLocation } from '../interfaces';
-import { HousingService } from '../housing.service'; // Housing data to retrieve
+import { HousingService } from '../housing.service';
+import { HousingSearchbarComponent } from '../housing-searchbar/housing-searchbar.component'; // Housing data to retrieve
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HousingLocationComponent],
+  imports: [CommonModule, HousingCardComponent, HousingSearchbarComponent],
   template: `
     <section>
-      <form>
-        <input type="text" placeholder="Filter by city" #filter />
-        <button
-          class="primary"
-          type="button"
-          (click)="filterResults(filter.value)"
-        >
-          Search
-        </button>
-      </form>
+      <app-housing-searchbar (filterResultsEvent)="filterResults($event)" />
       <section class="results">
-        <app-housing-location
+        <app-housing-card
           *ngFor="let housingLocation of filteredLocationList"
           [housingLocation]="housingLocation"
           (mouseover)="onMouseOver(housingLocation.id)"
-        ></app-housing-location>
+        ></app-housing-card>
       </section>
       <div>
-        <h4>Quick acces:</h4>
+        <h4>Our housings:</h4>
         <ul>
           @for (housingLocation of housingLocationList; track
           housingLocation.id) {
