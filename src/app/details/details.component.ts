@@ -122,10 +122,13 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   `,
 })
 export class DetailsComponent {
+  // This code gives the DetailsComponent access to the ActivatedRoute router feature that enables you to have access to the data about the current route
   route: ActivatedRoute = inject(ActivatedRoute);
+
   housingService: HousingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
 
+  // FormGroup and FormControl are types that enable you to build forms
   applyForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -133,6 +136,7 @@ export class DetailsComponent {
   });
 
   constructor() {
+    // the code converts the id parameter acquired from the route from a string to a number
     const housingLocationId = Number(this.route.snapshot.params['id']);
 
     this.housingService
@@ -142,6 +146,7 @@ export class DetailsComponent {
       });
   }
 
+  // code to handle the Apply now click
   submitApplication() {
     this.housingService.submitApplication(
       this.applyForm.value.firstName ?? '',

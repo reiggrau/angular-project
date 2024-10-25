@@ -19,6 +19,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrl: './housing-searchbar.component.css',
 })
 export class HousingSearchbarComponent {
+  // @Output allows the child component to send data to their parent
   @Output() filterResultsEvent = new EventEmitter<string>();
 
   filterResults(text: string) {

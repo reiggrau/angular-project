@@ -13,6 +13,8 @@ import { HousingSearchbarComponent } from '../housing-searchbar/housing-searchba
     <section>
       <app-housing-searchbar (filterResultsEvent)="filterResults($event)" />
       <section class="results">
+        <!-- *ngFor generates a component for each item of an array -->
+        <!-- [] binds the property value to the component -->
         <app-housing-card
           *ngFor="let housingLocation of filteredLocationList"
           [housingLocation]="housingLocation"
@@ -22,6 +24,7 @@ import { HousingSearchbarComponent } from '../housing-searchbar/housing-searchba
       <div>
         <h4>Our housings:</h4>
         <ul>
+          <!-- @for generates html for each item of an array -->
           @for (housingLocation of housingLocationList; track
           housingLocation.id) {
           <li>

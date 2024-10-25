@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
+    <!-- The routerLink directive enables Angular's router to create dynamic links in the application -->
     <a [routerLink]="['details', housingLocation.id]">
       <div class="listing">
         <img
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
           [src]="housingLocation.photo"
           alt="Exterior photo of {{ housingLocation.name }}"
         />
+        <!-- {{}} for value interpolation -->
         <h2 class="listing-heading">{{ housingLocation.name }}</h2>
         <p class="listing-location">
           {{ housingLocation.city }}, {{ housingLocation.state }}
@@ -25,5 +27,6 @@ import { RouterModule } from '@angular/router';
   styleUrl: `./housing-card.component.css`,
 })
 export class HousingCardComponent {
+  // @Input allows the child component to receive data from their parent
   @Input() housingLocation!: HousingLocation;
 }

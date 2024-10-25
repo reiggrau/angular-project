@@ -4,8 +4,10 @@ import { HousingLocation } from './interfaces';
 @Injectable({
   providedIn: 'root',
 })
+
+// Services serve data and functions that can be used by multiple components in the app
 export class HousingService {
-  url = 'http://localhost:3000/locations';
+  readonly url = 'http://localhost:3000/locations';
 
   constructor() {}
 

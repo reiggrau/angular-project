@@ -7,16 +7,12 @@ import { HomeComponent } from './home/home.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterModule,
-    HeaderComponent,
-    HomeComponent
-  ],
+  imports: [RouterModule, HeaderComponent, HomeComponent],
   template: `
     <main>
       <app-header></app-header>
       <section class="content">
-        <!-- <app-home></app-home> -->
+        <!-- router-outlet generates content depending on the url routes defined in app.routes.ts -->
         <router-outlet></router-outlet>
       </section>
     </main>
@@ -29,7 +25,7 @@ import { HomeComponent } from './home/home.component';
     .content {
       padding: var(--content-padding);
     }
-  `
+  `,
 })
 export class AppComponent {
   title = 'homes';
