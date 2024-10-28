@@ -20,19 +20,27 @@ import { HousingSearchbarComponent } from '../housing-searchbar/housing-searchba
           [housingLocation]="housingLocation"
           (mouseover)="onMouseOver(housingLocation.id)"
         ></app-housing-card>
+        <!-- @defer will load the html block when the browser is idle. Add a viewport trigger so the content will defer load once it enters the viewport -->
+        @defer (on viewport) {
+        <div>
+          <h4>Our housings:</h4>
+          <ul>
+            <!-- @for generates html for each item of an array -->
+            @for (housingLocation of housingLocationList; track
+            housingLocation.id) {
+            <li>
+              {{ housingLocation.name }}
+            </li>
+            }
+          </ul>
+        </div>
+        } @placeholder {
+        <p>...</p>
+        } @loading (minimum 0.5s) {
+        <!-- The @loading block is where you put html that will show while the deferred content is actively being fetched, but hasn't finished yet -->
+        <p>Loading...</p>
+        }
       </section>
-      <div>
-        <h4>Our housings:</h4>
-        <ul>
-          <!-- @for generates html for each item of an array -->
-          @for (housingLocation of housingLocationList; track
-          housingLocation.id) {
-          <li>
-            {{ housingLocation.name }}
-          </li>
-          }
-        </ul>
-      </div>
     </section>
   `,
   styleUrl: './home.component.css',

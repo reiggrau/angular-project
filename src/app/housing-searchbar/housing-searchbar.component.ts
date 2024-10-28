@@ -6,6 +6,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   imports: [],
   template: `
     <form>
+      <!-- We include a template variable in the input element called #filter so we can access it in the code below -->
       <input type="text" placeholder="Filter by city" #filter />
       <button
         class="primary"
